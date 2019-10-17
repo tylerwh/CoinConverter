@@ -13,36 +13,46 @@
 		//		alert("1::"+Number.isInteger(cents));
 		//alert("21::"+parseFloat(cents));
 		//	alert ("3::"+Number.isInteger(parseFloat(cents)));
+		
+		
 		if (cents == "" || cents == null) {
-			alert("1");
+			// Check to see if valude is blank or null
+			// alert("1"); // This is just for tracking
 			alert("Cannot leave blank");
-			// document.getElementById(cents).innerHTML="Cannot leave blank";
 			document.centsForm.userCents.focus();
 			return false;
 
 		} else if (isNaN(cents)) {
-			alert("2");
+			// Check to see if cents is NaN
+			// alert("2"); // This is just for tracking
 			alert("Must be whole number (1, 2, 3, etc)");
 			return false;
 		
 		}
 		else {
-			alert("3");
+			// alert("3"); // This is just for tracking
+			// Checks to see if cents is a float
+			// If it is a float and it doesn't equal zero 
+			// when this operation is run, then validation fails.
+			// If the float does equal zero after this operation
+			// runs, then validation passes.
 			var result = (cents- Math.floor(cents)) !== 0;
-			alert (result);
+			// alert (result); // This is just for tracking
 			
 			if (result)
+			{
+				alert("Cannot use decimals, must be a whole number.")
+				document.getElementById("cents").value="";
 				return false;
-			else
+			}
+			else 
+			{
 				document.getElementById("cents").value=parseInt(cents);
+			}
+				
 		}
-		alert("here");
+		// alert("here"); // This is just for tracking
 		return true;
-		/*else if(!(Number.isInteger(cents))){
-			alert("Must be whole number (1, 2, 3, etc)")
-			document.centsForm.userCents.focus();
-			return false;
-		} */
 
 	}
 </script>
