@@ -40,12 +40,18 @@
 			// alert (result); // This is just for tracking
 			
 			if (result)
-				// if true
+			{
+				alert("Cannot use decimals, must be a whole number.")
+				document.getElementById("cents").value="";
 				return false;
-			else
+			}
+			else 
+			{
 				document.getElementById("cents").value=parseInt(cents);
+			}
+				
 		}
-		alert("here");
+		// alert("here"); // This is just for tracking
 		return true;
 
 	}
